@@ -10,28 +10,11 @@
         android:foreground="@drawable/activity_profile_factor_layout"
     >
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
-        android:foreground="@drawable/activity_profile_img_factor_layout"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/logocourses"
-            android:id="@+id/rcv_item_activity_profile_img_course"
-
-            />
-    </LinearLayout>
-
-
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingHorizontal="18dp"
-            android:layout_weight="0.8"
             android:orientation="vertical"
             >
 
