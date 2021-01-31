@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:divider="@color/color_black"
+        android:layout_marginBottom="16dp"
+        android:foreground="@drawable/activity_profile_factor_layout"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:foreground="@drawable/activity_profile_img_factor_layout"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logocourses"
+            android:id="@+id/rcv_item_activity_profile_img_course"
+
+            />
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="18dp"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.32">
+
+                    <TextView
+                        android:id="@+id/rcv_item_activity_profile_txt_course_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="دوره اموزشی جاوا پلاس"
+                        android:justificationMode="inter_word"
+                        android:textColor="@color/color_black"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.17 "
+                    android:gravity="left">
+
+                    <TextView
+                        android:id="@+id/rcv_item_activity_profile_txt_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="50000"
+                        android:textColor="@color/color_orange"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir"
+                        android:text=" تومان"
+                        android:textColor="@color/color_black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:layout_marginBottom="12dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir"
+                        android:text="تاریخ خرید :"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/color_black"
+                        android:textSize="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir"
+                        android:text="تاریخ اعتبار :"
+                        android:textColor="@color/color_black"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.17"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rcv_item_activity_profile_txt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="1399/10/10"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/color_black"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/rcv_item_activity_profile_txt_validity_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="1399/10/10"
+                        android:textColor="@color/color_black"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
