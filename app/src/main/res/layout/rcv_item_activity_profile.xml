@@ -2,7 +2,7 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="115dp"
+        android:layout_height="120dp"
         android:layoutDirection="rtl"
         android:orientation="horizontal"
         android:divider="@color/color_black"
@@ -14,14 +14,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="18dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp"
             android:orientation="vertical"
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="12dp"
                 android:layout_weight="0.5"
                 android:orientation="horizontal">
 
@@ -38,7 +38,7 @@
                         android:text="دوره اموزشی جاوا پلاس"
                         android:justificationMode="inter_word"
                         android:textColor="@color/color_black"
-                        android:textSize="14dp" />
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -55,7 +55,7 @@
                         android:fontFamily="@font/vazir_bold"
                         android:text="50000"
                         android:textColor="@color/color_orange"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,7 +73,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
-                android:layout_marginBottom="12dp"
                 android:gravity="bottom"
                 android:orientation="horizontal">
 
@@ -117,7 +116,7 @@
                         android:text="1399/10/10"
                         android:layout_marginBottom="7dp"
                         android:textColor="@color/color_black"
-                        android:textSize="12dp" />
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/rcv_item_activity_profile_txt_validity_date"
@@ -126,7 +125,7 @@
                         android:fontFamily="@font/vazir_bold"
                         android:text="1399/10/10"
                         android:textColor="@color/color_black"
-                        android:textSize="12dp" />
+                        android:textSize="14dp" />
                 </LinearLayout>
 
             </LinearLayout>
