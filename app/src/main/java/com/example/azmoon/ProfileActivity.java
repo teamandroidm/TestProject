@@ -1,15 +1,18 @@
 package com.example.azmoon;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView txtNameFamily;
     RecyclerView rcv1;
     ImageView imgBack;
+    LinearLayout emptyFactorLa;
     MaterialToolbar materialToolbar;
     Dialog changePassDialog, exitDialog, logOutDialog;
     TextInputEditText edtPass, edtNewPass, edtNewPassAgain;
@@ -92,6 +96,18 @@ public class ProfileActivity extends AppCompatActivity {
         logOutDialog.setContentView(R.layout.custom_dialog_logout);
         logOutDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         init();
+        changePassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDialogChangePass();
+            }
+        });
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         for (Factors factor :factors1) {
             if (factor.getUserId() == userId&&factor.isFinally()) {
@@ -99,8 +115,11 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
 
+        isEmptyFactors();
+        setSupportActionBar(materialToolbar);
+
         //TODO: volley
-        //region getAllFactor & getAllUser
+        //region get All Factor & get All User with volley
 //        Thread thread=new Thread(new Runnable() {
 //                            @Override
 //                            public void run() {
@@ -121,25 +140,9 @@ public class ProfileActivity extends AppCompatActivity {
 //        }
         //endregion
 
-        changePassBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setDialogChangePass();
-            }
-        });
-
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        setRecyclerViewFactor(utils);
-        setSupportActionBar(materialToolbar);
-
-
     }
+
+    //region double press Exit
 
     @Override
     public void onBackPressed() {
@@ -158,8 +161,10 @@ public class ProfileActivity extends AppCompatActivity {
         }, 2000);
 
     }
+    //endregion
 
-    private void setDialoglogout() {
+    //region dialog log out
+    private void setDialogLogOut() {
         logOutDialog.setCancelable(false);
         logOutDialog.show();
         logOutDialogBtnNo.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +174,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+    //endregion
+
 
     private void setDialogChangePass() {
         changePassDialog.setCancelable(false);
@@ -188,8 +195,9 @@ public class ProfileActivity extends AppCompatActivity {
             edtLaNewPassAgain.setError("");
 
         }
+
         //TODO:volley
-        //region changePass
+        //region change Pass with volley
         //        changePassDialogBtnYes.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -247,6 +255,27 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+    private void isEmptyFactors(){
+        if (factors.size()==0){
+            rcv1.setVisibility(View.GONE);
+            emptyFactorLa.setVisibility(View.VISIBLE);
+
+        }
+        //TODO:volley
+
+        //region is empty factor with volley
+        //        if (factors2.size()==0){
+//            emptyFactorLa.setVisibility(View.GONE);
+//        }
+        //endregion
+        else{
+            emptyFactorLa.setVisibility(View.GONE);
+            rcv1.setVisibility(View.VISIBLE);
+            setRecyclerViewFactor(utils);
+
+        }
+
+    }
 
     private void setRecyclerViewFactor(final Utils utils) {
 
@@ -259,11 +288,9 @@ public class ProfileActivity extends AppCompatActivity {
                         TextView price = itemView.findViewById(R.id.rcv_item_activity_profile_txt_price);
                         TextView date = itemView.findViewById(R.id.rcv_item_activity_profile_txt_date);
                         TextView validityDate = itemView.findViewById(R.id.rcv_item_activity_profile_txt_validity_date);
-                        //ImageView i=itemView.findViewById(R.id.img);
-
 
                         //TODO: volley
-                        // region factor
+                        // region factor with volley
 //
 //                        if (factors2.get(position).getUserId() == 2 && factors2.get(position).isFinally()) {
 //                                courseName.setText(getTermById("", factors2.get(position).getTermId()));
@@ -292,7 +319,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    //region getAllUser
+    //region get All User with volley
     public ArrayList<Users> getAllUser(String url) {
         final ArrayList<Users>[] usersList = new ArrayList[]{new ArrayList<>()};
         final StringRequest request = new StringRequest(
@@ -319,7 +346,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     //endregion
 
-    //region getTermById
+    //region get Term By Id with volley
     public String getTermById(String url, final byte id) {
         final String[] s = new String[1];
         final StringRequest request = new StringRequest(
@@ -351,7 +378,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     //endregion
 
-    //region getAllFactor
+    //region get All Factor with volley
     public ArrayList<Factors> getAllFactor(String url) {
         final ArrayList<Factors>[] factorsList = new ArrayList[]{new ArrayList<>()};
         final StringRequest request = new StringRequest(
@@ -378,7 +405,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     //endregion
 
-    //region sendNewPassword
+    //region change Password with volley
     private void sendNewPassword(String url,JSONObject jsonObject) {
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST,
@@ -482,27 +509,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
     //endregion
-//
-//    //region fake data user
-//    private ArrayList<Users> fakeDataUser() {
-//        ArrayList<Users> usersArrayList=new ArrayList<>();
-//        Users users=new Users();
-//        users.setUserId(2);
-//        users.setName("هانیه");
-//        users.setFamily("پروین");
-//
-//        usersArrayList.add(users);
-//        /////////
-//
-//        users.setUserId(3);
-//        users.setName("فاطمه");
-//        users.setFamily("عباسی");
-//
-//        usersArrayList.add(users);
-//
-//        return usersArrayList;
-//    }
-//    //endregion
+
+
 
     private void init() {
         rcv1 = findViewById(R.id.activity_profile_rcv_factor);
@@ -522,6 +530,7 @@ public class ProfileActivity extends AppCompatActivity {
         edtLaNewPass = changePassDialog.findViewById(R.id.custom_dialog_activity_profile_change_pass_edtla_newpass);
         edtLaNewPassAgain = changePassDialog.findViewById(R.id.custom_dialog_activity_profile_change_pass_edtla_newpass_again);
         imgBack = findViewById(R.id.activity_profile_toolbar_img_back);
+        emptyFactorLa = findViewById(R.id.activity_profile_empty_layout);
         utils = new Utils(getApplicationContext(), ProfileActivity.this);
 
     }

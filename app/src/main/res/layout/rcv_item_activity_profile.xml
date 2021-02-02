@@ -35,7 +35,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/vazir_bold"
-                        android:text="دوره اموزشی جاوا پلاس"
+                        android:text="نام دوره"
                         android:justificationMode="inter_word"
                         android:textColor="@color/color_black"
                         android:textSize="18dp" />
