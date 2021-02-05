@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.azmoon.Engine.DateConverter;
 import com.example.azmoon.Engine.RecyclerAdapter.RecyclerViewAdapter;
 import com.example.azmoon.Engine.RecyclerAdapter.RecyclerViewMethod;
 import com.example.azmoon.Engine.Utils;
@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class ProfileActivity extends AppCompatActivity {
@@ -41,11 +42,13 @@ public class ProfileActivity extends AppCompatActivity {
     Button changePassBtn, changePassDialogBtnNo, changePassDialogBtnYes, exitDialogBtnNo,
             exitDialogBtnYes, logOutDialogBtnNo, logOutDialogBtnYes;
 
-    Data data ;
-    ArrayList<Factors> factors=new ArrayList<>();
+    Data data;
+    ArrayList<Factors> factors = new ArrayList<>();
     String termName;
     // for activity term
     boolean doubleBackPress = false;
+    // for convert miladi date to shamsi date
+    DateConverter dateConverter = new DateConverter();
 
 
     @Override
@@ -77,13 +80,12 @@ public class ProfileActivity extends AppCompatActivity {
         });
         //TODO: set url (volley)
 
-                data.getFactors("", new OnResult() {
-                    @Override
-                    public void success(Object... objects) {
-                       factors = (ArrayList<Factors>) objects[0];
-                    }
-                });
-
+        data.getFactors("", new OnResult() {
+            @Override
+            public void success(Object... objects) {
+                factors = (ArrayList<Factors>) objects[0];
+            }
+        });
 
 
         // fill user name and family
@@ -239,13 +241,22 @@ public class ProfileActivity extends AppCompatActivity {
                         data.getTermName(factors.get(position).getTermId(), new OnResult() {
                             @Override
                             public void success(Object... objects) {
-                                termName=(String)objects[0];
+                                termName = (String) objects[0];
                             }
                         });
                         courseName.setText(termName);
                         price.setText(utils.toPersianNumber4(utils.splitDigits(factors.get(position).getPrice())));
-                        date.setText(utils.toPersianNumber4(new SimpleDateFormat("yyyy/MM/dd").format(factors.get(position).getFinallyDate())));
-                        validityDate.setText(utils.toPersianNumber4(new SimpleDateFormat("yyyy/MM/dd").format(factors.get(position).getFinallyDate().getTime() + (factors.get(position).getValidateTime() * 86400000))));
+
+                        dateConverter.gregorianToPersian(Integer.parseInt(new SimpleDateFormat("yyyy").format(factors.get(position).getFinallyDate())), Integer.parseInt(new SimpleDateFormat("MM").format(factors.get(position).getFinallyDate())), Integer.parseInt(new SimpleDateFormat("dd").format(factors.get(position).getFinallyDate())));
+                        date.setText(utils.toPersianNumber4(dateConverter.toString()));
+                        // add day in finally date
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTime(factors.get(position).getFinallyDate());
+                        calendar.add(Calendar.DATE, factors.get(position).getValidateTime());
+
+                        dateConverter.gregorianToPersian(Integer.parseInt(new SimpleDateFormat("yyyy").format(calendar.getTime())), Integer.parseInt(new SimpleDateFormat("MM").format(calendar.getTime())), Integer.parseInt(new SimpleDateFormat("dd").format(calendar.getTime())));
+
+                        validityDate.setText(utils.toPersianNumber4(dateConverter.toString()));
 
 
                     }

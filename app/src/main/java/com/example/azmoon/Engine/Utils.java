@@ -80,11 +80,6 @@ public class Utils {
                 chars[i]=(char)(chars[i]+1728);
         return new String(chars);
     }
-    public String cunvertNum(int n){
 
-        NumberFormat nf=NumberFormat.getInstance(new Locale("ar","eg"));
-
-        return nf.format(n);
-    }
 
 }
