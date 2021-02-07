@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+<Button
+    android:layout_width="120dp"
+    android:layout_height="45dp"
+    android:text="ديالوگ رشته"
+    android:id="@+id/btn1"/>
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:text="ديالوگ اينترنت"
+        android:id="@+id/btn2"/>
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:text="صفحه بعد"
+        android:id="@+id/btn3"/>
+</LinearLayout>
+
