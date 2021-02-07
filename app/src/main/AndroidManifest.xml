@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.myproject_1">
     <uses-permission android:name="android.permission.INTERNET"/>
+=======
+    package="com.example.azmon">
+    <uses-permission android:name="android.permission.INTERNET" />
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
 
     <application
         android:name=".G"
@@ -10,6 +15,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/Theme.MyProject_1"
         android:usesCleartextTraffic="true">
         <activity android:name=".Activitys.LoginActivity"
@@ -18,13 +24,27 @@
         </activity>
         <activity android:name=".Activitys.SplashActivity"
             android:screenOrientation="portrait">
+=======
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".FieldActivity">
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Activitys.MainActivity"></activity>
+=======
+        <activity android:name=".CoursesActivity">
+
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
     </application>
 
 </manifest>

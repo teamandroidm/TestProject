@@ -1,12 +1,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
 buildscript {
     repositories {
         google()
         jcenter()
+<<<<<<< HEAD
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
 
+=======
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -16,9 +28,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f

@@ -1,4 +1,9 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Azmoon</string>
     <string name="Splash_Input">آموزشگاه یاهو</string>
 </resources>
+=======
+    <string name="app_name">Azmon</string>
+</resources>
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f

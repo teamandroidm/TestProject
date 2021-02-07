@@ -18,4 +18,8 @@
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
+<<<<<<< HEAD
 #-renamesourcefileattribute SourceFile
+=======
+#-renamesourcefileattribute SourceFile
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f

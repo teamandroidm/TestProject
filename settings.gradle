@@ -1,2 +1,5 @@
 include ':app'
+<<<<<<< HEAD
 rootProject.name = "myProject_1"
+=======
+>>>>>>> 995b8f9b472690db4984c7363cad5d805d3cc70f
